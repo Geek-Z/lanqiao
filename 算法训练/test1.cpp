@@ -1,21 +1,26 @@
+
+/**
+    负数进制的转换
+**/
 #include <bits/stdc++.h>
 using namespace std;
-
-int subset(int cur, int n, vector<int> &ans)
+long long kto10(string str, int k)
 {
-    for(int i = 0; i < ans.size(); ++i)
-        cout << ans[i] << " ";
-    cout << endl;    
-    for(int i = cur; i < n; ++i) {
-        ans.push_back(i + 1);
-        subset(i + 1, n, ans);
-        ans.pop_back();
+    long long ans = 0, exp = 1;
+    for(int i = str.size() - 1; i >= 0; i--)
+    {
+        int x = str[i] > '9' ? str[i] - 'A' + 10 : str[i] - '0';
+        ans += x * exp;
+        exp *=k;
     }
+    return ans;
 }
-
 int main()
 {
-    vector<int> ans;
-    subset(0, 3, ans);
+    printf("%.100lf", 129/97.0);
     return 0;
 }
+/*
+922337202603578112
+922337202603578091
+*/
